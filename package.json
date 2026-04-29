@@ -4,7 +4,7 @@
   "description": "Headless BIM CLI and MCP server for FreeCAD and EnergyPlus workflows.",
   "type": "module",
   "bin": {
-    "bimctl": "./dist/cli.js"
+    "bimctl": "dist/cli.js"
   },
   "exports": {
     ".": {
