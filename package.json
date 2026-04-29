@@ -1,0 +1,73 @@
+{
+  "name": "bimctl",
+  "version": "0.1.0",
+  "description": "Headless BIM CLI and MCP server for FreeCAD and EnergyPlus workflows.",
+  "type": "module",
+  "bin": {
+    "bimctl": "./dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./schemas/bim-model.schema.json": "./schemas/bim-model.schema.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "schemas",
+    "docs",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc && node scripts/chmod-bin.mjs",
+    "lint": "tsc --noEmit",
+    "test": "npm run build && vitest run",
+    "test:e2e": "npm run build && vitest run tests/e2e.test.ts tests/cli.test.ts",
+    "test:real-engines": "npm run build && vitest run tests/real-engines.test.ts",
+    "prepack": "npm run build"
+  },
+  "keywords": [
+    "bim",
+    "freecad",
+    "energyplus",
+    "mcp",
+    "building-simulation",
+    "cli",
+    "agents"
+  ],
+  "author": {
+    "name": "Mohammed Tayor",
+    "email": "m@tayor.net",
+    "url": "https://github.com/tayor"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tayor/bimctl.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tayor/bimctl/issues"
+  },
+  "homepage": "https://github.com/tayor/bimctl#readme",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.5",
+    "commander": "^14.0.0",
+    "pino": "^9.9.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/node": "^24.9.1",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}

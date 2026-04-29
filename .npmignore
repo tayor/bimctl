@@ -1,0 +1,11 @@
+node_modules/
+src/
+tests/
+docs/
+.bimctl/
+runs/
+*.run
+*.AppImage
+*.tgz
+vitest.config.ts
+tsconfig.json
